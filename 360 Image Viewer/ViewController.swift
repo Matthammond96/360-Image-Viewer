@@ -20,24 +20,24 @@ class ViewController: UIViewController {
             motionManager.startDeviceMotionUpdates()
             motionManager.startGyroUpdates()
             
-            motionManager.startDeviceMotionUpdatesToQueue(NSOperationQueue.currentQueue()!, withHandler: { data, error in
-                //print(data?.gravity.x)
-                //print(data?.gravity.y)
-                //let rotation = atan2((data?.rotationRate.x)!, (data?.rotationRate.y)!) - M_PI
-                //self.image.transform = CGAffineTransformMakeRotation(CGFloat(rotation))
-            })
-            
             motionManager.startGyroUpdatesToQueue(NSOperationQueue.currentQueue()!, withHandler: { data, error in
-                //print("asd")
-                //print(data!.rotationRate.x)
-                //print(data!)
-                //print(self.image.frame.midX)
                 let imageCenter = self.image.center.x
                 let xData = Int((data!.rotationRate.y)*50)
                 let newImageX = imageCenter + CGFloat(xData)
                 
-                //let rotation = atan2((data?.rotationRate.x)!, (data?.rotationRate.y)!) - M_PI
-                self.image.center.x = CGFloat(newImageX)
+                if self.image.center.x < 1700 && self.image.center.x > -1300 {
+                    self.image.center.x = CGFloat(newImageX)
+                }
+                
+                if self.image.center.x > 1700 {
+                    self.image.center.x = CGFloat(-1250)
+                    //self.image.center.x = CGFloat(newImageX)
+                }
+                
+                if self.image.center.x < -1300 {
+                    self.image.center.x = CGFloat(1650)
+                }
+
             })
             
         } else {
