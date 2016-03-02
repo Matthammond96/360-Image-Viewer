@@ -6,6 +6,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var image: UIImageView!
     let motionManager = CMMotionManager()
+    let imageWidth = UIImage(named: "360Image2")!
     
     
     override func viewDidLoad() {
@@ -40,23 +41,22 @@ class ViewController: UIViewController {
             
             motionManager.startGyroUpdatesToQueue(NSOperationQueue.currentQueue()!, withHandler: { data, error in
                 
-                print(self.image.center.y)
-                
                 //X Rotation
+                let imageWidthHalf = self.imageWidth.size.width / 2
                 let imageCenter = self.image.center.x
-                let xData = Int((data!.rotationRate.y)*(M_PI * 2))
+                let xData = Int((data!.rotationRate.y)*Double((imageWidthHalf) / 360 ))
                 let newImageX = imageCenter + CGFloat(xData)
                 
-                if self.image.center.x < 1700 && self.image.center.x > -1300 {
+                if self.image.center.x < self.imageWidth.size.width / 2 && self.image.center.x > (self.imageWidth.size.width * -0.5)  {
                     self.image.center.x = CGFloat(newImageX)
                 }
                 
-                if self.image.center.x > 1700 {
-                    self.image.center.x = CGFloat(-1250)
+                if self.image.center.x > self.imageWidth.size.width / 2 {
+                  self.image.center.x = CGFloat(-4000)
                 }
                 
-                if self.image.center.x < -1300 {
-                    self.image.center.x = CGFloat(1650)
+                if self.image.center.x < self.imageWidth.size.width * -0.5 {
+                  self.image.center.x = CGFloat(4800)
                 }
                 
                 //Y Rotation
