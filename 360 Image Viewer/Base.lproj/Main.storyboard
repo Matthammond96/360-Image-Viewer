@@ -17,11 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="360Image" translatesAutoresizingMaskIntoConstraints="NO" id="czi-vE-kdw">
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="360Image2" translatesAutoresizingMaskIntoConstraints="NO" id="czi-vE-kdw">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="czi-vE-kdw" secondAttribute="trailing" id="Pto-6K-e4w"/>
+                            <constraint firstItem="czi-vE-kdw" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="WPB-br-xjy"/>
+                            <constraint firstItem="czi-vE-kdw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gkJ-x2-o9p"/>
+                            <constraint firstItem="czi-vE-kdw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mMq-rs-BUr"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="image" destination="czi-vE-kdw" id="tJ7-f0-Rzu"/>
@@ -33,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="360Image" width="10000" height="1768"/>
+        <image name="360Image2" width="9642" height="1856"/>
     </resources>
 </document>
